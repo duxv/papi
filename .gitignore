@@ -1,0 +1,4 @@
+*.out
+tests/lexer
+obj/*
+main

@@ -13,7 +13,7 @@ recompile_commands = {"./lexer": 'gcc lexer.c "../src/lexer.c" "../src/token.c"'
 for command in commands:
     if RECOMPILE:
         recom = recompile_commands.get(command)
-        print("Recompiling {}: {}".format())
+        print("Recompiling {}: {}".format(command, recom))
         system(recom)
 
     print("Running '%s'" % command)

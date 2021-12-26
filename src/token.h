@@ -21,6 +21,7 @@ typedef enum {
     tok_Fun, tok_End, tok_Pass, tok_EndOfFile,
     tok_Newline, tok_Illegal, tok_Lparen,
     tok_Rparen, tok_Lbracket, tok_Rbracket,
+    tok_True, tok_False, tok_And, tok_Or,
 } tok_Token;
 
 extern const char* const tok_names[];

@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "ast.h"
+
 
 lex_State* lex_new(char* input) {
     lex_State* lxr = malloc(sizeof(lex_State));
@@ -106,6 +108,24 @@ tok_Token lex_next_token(lex_State* lxr) {
         
         case ']':
             token = tok_Rbracket;
+
+        case '|':
+            if (ch1 == '|') {
+                lex_readch(lxr);
+                token = tok_Or;
+            } else {
+                token = tok_Illegal;
+            }
+            break;
+
+        case '&':
+            if (ch1 == '&') {
+                lex_readch(lxr);
+                token = tok_And;
+            } else {
+                token = tok_Illegal;
+            }
+            break;
 
         case '=':
             if (ch1 == '=') {
@@ -244,6 +264,17 @@ tok_Token identifier_type(char* ident) {
         return tok_End;
     else if (strcmp(ident, "pass") == 0)
         return tok_Pass;
+    else if (strcmp(ident, "true") == 0)
+        return tok_True;
+    else if (strcmp(ident, "false") == 0)
+        return tok_False;
     else
         return tok_Ident;
 }
+
+
+// char* lex_read_string(lex_State* lxr, char delim) {
+//     int startPos = lxr->pos;
+
+//     while()
+// }

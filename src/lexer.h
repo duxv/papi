@@ -52,6 +52,10 @@ char* lex_read_identifier(lex_State* lxr);
 // and return it
 long long lex_read_number(lex_State* lxr);
 
+// // read a string and get its value
+// // excluding the quotes
+// char* lex_read_string(lex_State* lxr, char delim);
+
 // check if a token is either a keyword or
 // an identifier
 tok_Token identifier_type(char* ident);

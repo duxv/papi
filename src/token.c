@@ -33,4 +33,8 @@ const char* const tok_names[] = {
     "RPAREN",
     "LBRACKET",
     "RBRACKET",
+    "TRUE",
+    "FALSE",
+    "&&",
+    "||"
 };

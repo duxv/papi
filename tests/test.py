@@ -8,7 +8,7 @@ if len(argv) > 1 and argv[1] == "recompile":
 
 commands = ["./lexer"]
 
-recompile_commands = {"./lexer": 'gcc lexer.c "../src/lexer.c" "../src/token.c"'}
+recompile_commands = {"./lexer": 'gcc lexer.c "../src/lexer.c" "../src/token.c" -o lexer'}
 
 for command in commands:
     if RECOMPILE:

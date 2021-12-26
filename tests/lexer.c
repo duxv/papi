@@ -110,7 +110,7 @@ bool test_next_token() {
     "      print -34209\n"
     "   end\n"
     "end\n"
-    "pass fun end elseif $ ! != >= <= < > =>\n";
+    "pass fun end elseif $ ! != >= <= < > => true false & | && ||\n";
 
     lex_State* lxr =  lex_new(input);
 
@@ -170,6 +170,12 @@ bool test_next_token() {
         {tok_LessThan, NULL},
         {tok_GreaterThan, NULL},
         {tok_FatArrow, NULL},
+        {tok_True, NULL},
+        {tok_False, NULL},
+        {tok_Illegal, NULL},
+        {tok_Illegal, NULL},
+        {tok_And, NULL},
+        {tok_Or, NULL},
         {tok_Newline, NULL},
         {tok_EndOfFile, NULL},
     };

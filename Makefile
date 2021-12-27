@@ -4,6 +4,7 @@ SRC_FILES := $(shell find $(SRC_DIR) -name "*.c")
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 LDFLAGS :=
 TARGET := main
+CC := clang
 
 $(TARGET): $(OBJ_FILES)
 	$(CC) $(LDFLAGS) -o $@ $^

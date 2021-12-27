@@ -23,10 +23,12 @@ typedef enum {
 typedef enum {
     EXPR_INFIX,
     EXPR_PREFIX,
-    EXPR_INT,
+    EXPR_NUM,
     EXPR_IDENT,
     EXPR_BOOL,
 } expression_type_t;
+
+extern const char* const expr_types[];
 
 typedef enum {
     STMT_EXPR,
@@ -41,7 +43,13 @@ struct expression {
         char* ident;
         struct prefix_expression* prefix;
         struct infix_expression* infix;
+        struct assign_expression* assignment;
     };
+};
+
+struct assign_expression {
+    char* ident;
+    struct expression *value;
 };
 
 struct prefix_expression {
@@ -58,12 +66,13 @@ struct infix_expression {
 struct statement {
     statement_type_t type;
     union {
-        struct expression expr;
+        struct expression *expr;
     };
 };
 
 struct program {
-    struct statement* statements;
+    struct statement *statements;
+    int size;
 };
 
 #endif

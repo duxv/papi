@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 
 #include "lexer.h"
+#include "parser.h"
 
 
 bool is_regular_file(char* path) {
@@ -47,5 +48,8 @@ int main(int argc, char* argv[]) {
 
    fread(content, length, 1, fp);
 
+   lex_State *lxr = lex_new(content);
+   parser_State *parser = parser_new(lxr);
+   parse_program(parser);
     
 }
